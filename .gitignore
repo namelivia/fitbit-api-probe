@@ -1,0 +1,4 @@
+tags
+.env
+php/output/*
+!php/output/.gitkeep

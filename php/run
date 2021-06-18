@@ -1,0 +1,3 @@
+#!/bin/bash
+ls vendor/namelivia
+php ./scripts/test.php

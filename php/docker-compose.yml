@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  php-probe:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fitbit-php-http-probe
+    tty: false
+    working_dir: /usr/src/app
+    environment:
+      FITBIT_CLIENT_ID: ${FITBIT_CLIENT_ID}
+      FITBIT_CLIENT_SECRET: ${FITBIT_CLIENT_SECRET}
+      FITBIT_REDIRECT_URL: ${FITBIT_REDIRECT_URL}
+    volumes:
+      - ./:/usr/src/app
+      - vendor2:/usr/src/app/vendor
+      - ./output:/usr/src/app/output
+    command: ["/bin/sh","run"]
+
+volumes:
+  vendor2:

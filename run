@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -f .env ]; then
+  export $(cat .env | xargs)
+fi
+echo 'Cleaning output folders'
+rm -f php/output/*
+echo 'Running php probe'
+(cd php && docker-compose build && docker-compose up)
