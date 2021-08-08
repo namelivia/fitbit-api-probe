@@ -12,6 +12,7 @@ services:
       FITBIT_CLIENT_ID: ${FITBIT_CLIENT_ID}
       FITBIT_CLIENT_SECRET: ${FITBIT_CLIENT_SECRET}
       FITBIT_REDIRECT_URL: ${FITBIT_REDIRECT_URL}
+      FITBIT_AUTH_CODE: ${FITBIT_AUTH_CODE}
     volumes:
       - ./:/usr/src/app
       - vendor2:/usr/src/app/vendor

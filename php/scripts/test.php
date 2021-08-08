@@ -10,12 +10,18 @@ $fitbit = (new ServiceProvider())->build(
 	getenv("FITBIT_CLIENT_SECRET"),
 	getenv("FITBIT_REDIRECT_URL"),
 );
-try {
-	$activities = $fitbit->activities()->favorites()->get();
-} catch (MissingCodeException $e) {
-	echo("Retrieve auth token from:");
-	echo($fitbit->getAuthUri());
+$authCode = getenv("FITBIT_AUTH_CODE");
+if (!empty($authCode)) {
+	$fitbit->setAuthorizationCode($authCode);
 }
-write_output("result", [
-	$activities
-]);
+try {
+	$food = $fitbit->food()->foods()->search('mango');
+	write_output("result", [
+		$food
+	]);
+	echo("Success! Check the contents on php/output/result\n");
+} catch (MissingCodeException $e) {
+	echo("Retrieve auth token from:\n");
+	echo($fitbit->getAuthUri() . "\n");
+	echo("Place it to FITBIT_AUTH_CODE on .env and run again\n");
+}
