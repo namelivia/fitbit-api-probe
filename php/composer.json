@@ -1,7 +1,7 @@
 {
     "require": {
-        "php": "^7.3",
-        "namelivia/fitbit-http-php": "^0.0.14",
+        "php": "^8.0",
+        "namelivia/fitbit-http-php": "^0.0.15",
         "kamermans/guzzle-oauth2-subscriber": "^1.0"
     },
     "config": {
